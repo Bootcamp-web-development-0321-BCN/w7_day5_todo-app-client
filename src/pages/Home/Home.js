@@ -4,7 +4,7 @@ import RoundButton from '../../components/RoundButton/RoundButton'
 import Text from '../../components/Text'
 import SCHome from './Home.styled'
 
-export default function Home() {
+function Home() {
   return (
     <SCHome>
       <div className="home-wrapper">
@@ -22,3 +22,5 @@ export default function Home() {
     </SCHome>
   )
 }
+
+export default Home;

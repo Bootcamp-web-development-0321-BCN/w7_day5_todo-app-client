@@ -5,6 +5,14 @@ const SCTodoList = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  .close-session {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
 
   .card {
     background-color: ${({ theme }) => theme.color.white};

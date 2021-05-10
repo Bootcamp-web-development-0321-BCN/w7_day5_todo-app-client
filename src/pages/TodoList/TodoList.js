@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import CreateTodo from '../../components/CreateTodo/CreateTodo';
 import Text from '../../components/Text';
 import Todo from '../../components/Todo/Todo';
+import { withAuth } from '../../context/auth.context';
 import TodoService from '../../services/todos.service'
 import SCTodoList from './TodoList.styled';
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,10 +40,15 @@ export default class TodoList extends Component {
     })
   }
 
+  handleLogout = () => {
+    this.props.logout();
+  }
+
   render() {
     const { todos } = this.state;
     return (
       <SCTodoList>
+        <Text className="close-session" onClick={() => this.handleLogout()} as="p" color="black">Cerrar sesión</Text>
         <div className="card">
           <Text size="l" weight="superDisplay" color="black">
             {todos.length === 0 ? "Ups, no tienes ningún todo" : todos.length === 1 ? "Estás más cerca de no dejarte nada, todo" : "Perfecto, sigue añadiento todos"}
@@ -56,3 +62,5 @@ export default class TodoList extends Component {
     )
   }
 }
+
+export default withAuth(TodoList);

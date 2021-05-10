@@ -7,12 +7,15 @@ import reportWebVitals from './reportWebVitals';
 import theme from './theme';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './context/auth.context';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider theme={theme}>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
