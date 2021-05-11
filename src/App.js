@@ -1,6 +1,8 @@
 import { Route, Switch } from 'react-router';
 import './App.css';
 import AnonRoute from './components/AnonRoute/AnonRoute';
+import CounterClass from './components/Hooks/Counter/CounterClass';
+import CounterFunction from './components/Hooks/Counter/CounterFunction';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import EditUser from './pages/EditUser/EditUser';
 import Home from './pages/Home/Home';
@@ -11,6 +13,8 @@ import TodoList from './pages/TodoList/TodoList';
 function App() {
   return (
     <div>
+      <CounterClass />
+      <CounterFunction />
       <Switch>
         <Route exact path="/" component={Home} />
         <PrivateRoute path="/todo-list" exact component={TodoList} />
